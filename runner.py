@@ -82,7 +82,7 @@ while(True):
 
         time.sleep(5)
         print("closing window...")
-        driver.close()
+        driver.quit()
         time.sleep(5)
     except Exception as e:
         print(e)
