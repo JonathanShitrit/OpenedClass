@@ -21,51 +21,61 @@ import test
 import os
 
 classStatus = "Closed"
-while(True):
-    driver = webdriver.Chrome()
-    driver.get("https://globalsearch.cuny.edu/CFGlobalSearchTool/search.jsp")
+# while(True):
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
-    # initial page
-    college = driver.find_element_by_id("QNS01")
-    college.click()
-    term = driver.find_element_by_xpath("//*[contains(text(), 'Fall Term')]")
-    term.click()
-    nextBtn = driver.find_element_by_class_name("SSSBUTTON_CONFIRMLINK")
-    nextBtn.click()
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.binary_location = GOOGLE_CHROME_PATH
 
-    # second page
-    subject = driver.find_element_by_xpath(
-        "//*[contains(text(), 'Computer Science')]")
-    subject.click()
-    courseCareer = driver.find_element_by_xpath(
-        "//*[contains(text(), 'Undergraduate')]")
-    courseCareer.click()
-    showOpenClass = driver.find_element_by_id("open_classId")
-    if(showOpenClass.is_selected()):
-        showOpenClass.click()
-    searchBtn = driver.find_element_by_id("btnGetAjax")
-    searchBtn.click()
+driver = webdriver.Chrome(
+    executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 
-    # list of classes page
-    sections = ["48158", "48201", "51617", "48196", "48220"]
-    for section in sections:
-        driver.find_element_by_id("imageDivLink_inst0").click()
-        # find a way to choose dropdown by name and not id
-        driver.find_element_by_id("imageDivLink21").click()
+driver.get("https://globalsearch.cuny.edu/CFGlobalSearchTool/search.jsp")
 
-        driver.find_element_by_xpath(
-            "//*[contains(text(), '" + section + "')]").click()
+# initial page
+college = driver.find_element_by_id("QNS01")
+college.click()
+term = driver.find_element_by_xpath("//*[contains(text(), 'Fall Term')]")
+term.click()
+nextBtn = driver.find_element_by_class_name("SSSBUTTON_CONFIRMLINK")
+nextBtn.click()
 
-        print("checking status...")
-        status = driver.find_element_by_id("SSR_CLS_DTL_WRK_SSR_DESCRSHORT")
-        classStatus = status.text
-        print("class is", classStatus)
+# second page
+subject = driver.find_element_by_xpath(
+    "//*[contains(text(), 'Computer Science')]")
+subject.click()
+courseCareer = driver.find_element_by_xpath(
+    "//*[contains(text(), 'Undergraduate')]")
+courseCareer.click()
+showOpenClass = driver.find_element_by_id("open_classId")
+if(showOpenClass.is_selected()):
+    showOpenClass.click()
+searchBtn = driver.find_element_by_id("btnGetAjax")
+searchBtn.click()
 
-        if(classStatus == "Open"):
-            myclass = test.sms()
-            myclass.sendSmsTo("3474663815", section)
-        # time.sleep(50)
-        driver.back()
+# list of classes page
+sections = ["48158", "48201", "51617", "48196", "48220"]
+for section in sections:
+    driver.find_element_by_id("imageDivLink_inst0").click()
+    # find a way to choose dropdown by name and not id
+    driver.find_element_by_id("imageDivLink21").click()
+
+    driver.find_element_by_xpath(
+        "//*[contains(text(), '" + section + "')]").click()
+
+    print("checking status...")
+    status = driver.find_element_by_id("SSR_CLS_DTL_WRK_SSR_DESCRSHORT")
+    classStatus = status.text
+    print("class is", classStatus)
+
+    if(classStatus == "Open"):
+        myclass = test.sms()
+        myclass.sendSmsTo("3474663815", section)
+    # time.sleep(50)
+    driver.back()
 
     # time.sleep(5)
     # stream = os.popen(
