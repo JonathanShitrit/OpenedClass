@@ -86,6 +86,7 @@ while(True):
             "kill $(ps aux | grep google | grep -v grep | awk '{print $2}')")
         output = stream.read()
         print(output)
+        time.sleep(5)
 
 
 # CSCI 335-31
