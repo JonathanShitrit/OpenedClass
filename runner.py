@@ -1,20 +1,10 @@
-# import time;
-# import os;
-
-# while True:
-#     print("Hello from python")
-#     os.system("heroku ps:restart web.1")
-#     time.sleep(80)
-
-
 # 1 redirect to globalsearch
 # 2 choose college and term
 # 3 choose subject, course career, and uncheck show open classes
 # 4 find the dropdown to open by text ex: 'CSCI 381'
-# 5 find the row of interest by ClassNo. text
-# 6 stay in the same <tr> and look at the status image
-# 7 refresh the page
-# 8 repeat 4 - 7
+# 5 find the classes of interest by ClassNo.
+# 6 iterate through specified classes check if any are open
+# 7 repeat 4 - 6
 from selenium import webdriver
 import time
 import test
@@ -76,7 +66,7 @@ while(True):
 
             if(classStatus == "Open"):
                 myclass = test.sms()
-                myclass.sendSmsTo("3474663815", section)
+                myclass.sendSmsTo("PHONE NUMBER", section)
             # time.sleep(50)
             driver.back()
 
