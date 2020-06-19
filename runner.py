@@ -77,10 +77,9 @@ while(True):
         driver.back()
 
     time.sleep(5)
-    stream = os.popen("pkill chrome")
-    output = stream.read()
-    print(output)
-    time.sleep(5)
+    print("killing chrome...")
+    stream = os.popen("pkill --oldest chrome")
+    time.sleep(10)
 
     # stream = os.popen(
     #     "kill $(ps aux | grep google | grep -v grep | awk '{print $2}')")
