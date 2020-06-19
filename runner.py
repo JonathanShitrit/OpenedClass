@@ -76,16 +76,17 @@ while(True):
         # time.sleep(50)
         driver.back()
 
-        time.sleep(5)
-        stream = os.popen("sudo killall chrome")
-        output = stream.read()
-        print(output)
+    time.sleep(5)
+    stream = os.popen("pkill chrome")
+    output = stream.read()
+    print(output)
+    time.sleep(5)
 
-        # stream = os.popen(
-        #     "kill $(ps aux | grep google | grep -v grep | awk '{print $2}')")
-        # output = stream.read()
-        # print(output)
-        # time.sleep(5)
+    # stream = os.popen(
+    #     "kill $(ps aux | grep google | grep -v grep | awk '{print $2}')")
+    # output = stream.read()
+    # print(output)
+    # time.sleep(5)
 
 
 # CSCI 335-31
