@@ -21,26 +21,22 @@ while(True):
         chrome_options.add_argument('--no-sandbox')
         chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_PATH")
 
-        driver = webdriver.Chrome(
-            executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 
         driver.get("https://globalsearch.cuny.edu/CFGlobalSearchTool/search.jsp")
 
         # initial page
         college = driver.find_element_by_id("QNS01")
         college.click()
-        term = driver.find_element_by_xpath(
-            "//*[contains(text(), 'Fall Term')]")
+        term = driver.find_element_by_xpath("//*[contains(text(), 'Fall Term')]")
         term.click()
         nextBtn = driver.find_element_by_class_name("SSSBUTTON_CONFIRMLINK")
         nextBtn.click()
 
         # second page
-        subject = driver.find_element_by_xpath(
-            "//*[contains(text(), 'Computer Science')]")
+        subject = driver.find_element_by_xpath("//*[contains(text(), 'Computer Science')]")
         subject.click()
-        courseCareer = driver.find_element_by_xpath(
-            "//*[contains(text(), 'Undergraduate')]")
+        courseCareer = driver.find_element_by_xpath("//*[contains(text(), 'Undergraduate')]")
         courseCareer.click()
         showOpenClass = driver.find_element_by_id("open_classId")
         if(showOpenClass.is_selected()):
@@ -55,12 +51,10 @@ while(True):
             # find a way to choose dropdown by name and not id
             driver.find_element_by_id("imageDivLink21").click()
 
-            driver.find_element_by_xpath(
-                "//*[contains(text(), '" + section + "')]").click()
+            driver.find_element_by_xpath("//*[contains(text(), '" + section + "')]").click()
 
             print("checking status...")
-            status = driver.find_element_by_id(
-                "SSR_CLS_DTL_WRK_SSR_DESCRSHORT")
+            status = driver.find_element_by_id("SSR_CLS_DTL_WRK_SSR_DESCRSHORT")
             classStatus = status.text
             print("class is", classStatus)
 
@@ -76,34 +70,3 @@ while(True):
         time.sleep(5)
     except Exception as e:
         print(e)
-
-
-# CSCI 335-31
-# (48202)
-
-# CSCI 344-10
-# (48164)
-
-# CSCI 363-33
-# (48160)
-
-# CSCI 381-12
-# (48158)
-
-# CSCI 381-13
-# (48201)
-
-# CSCI 381-15
-# (51617)
-
-# CSCI 381-22
-# (48196)
-
-# CSCI 381-51
-# (48220)
-
-# MATH 231-03
-# (43700)
-
-# MATH 231-08
-# (43705)
