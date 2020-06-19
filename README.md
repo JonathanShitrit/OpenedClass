@@ -16,3 +16,7 @@ A Python app deployed on Heroku that uses Selenium to notify you, via text messa
   * U.S. Cellular: [number]@email.uscc.net
   * Virgin Mobile: [number]@vmobl.com
 3. In runner.py line 63 enter your real number
+4. Run with `python3 runner.py`
+
+### Run Remotely on Heroku (optional)
+1. A great guide on how to get started with python and selenium on heroku https://www.youtube.com/watch?v=Ven-pqwk3ec 
