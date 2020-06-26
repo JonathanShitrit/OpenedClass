@@ -4,7 +4,7 @@ A Python app deployed on Heroku that uses Selenium to notify you, via text messa
 
 ## Setup
 1. Alter test.py and replace your gmail account info on lines 8 and 9
-2. Use your corresponding carrier's sms gateway:
+2. On line 16 use your corresponding carrier's sms gateway:
   * AT&T: [number]@txt.att.net
   * Sprint: [number]@messaging.sprintpcs.com or [number]@pm .sprint.com
   * T-Mobile: [number]@tmomail.net
