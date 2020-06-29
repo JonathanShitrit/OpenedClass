@@ -15,7 +15,7 @@ A Python app deployed on Heroku that uses Selenium to notify you, via text messa
   * Tracfone: [number]@mmst5.tracfone.com
   * U.S. Cellular: [number]@email.uscc.net
   * Virgin Mobile: [number]@vmobl.com
-3. In functions.py line 63 enter your real number
+3. In functions.py line 49 enter your real number
 4. Run with `python3 runner.py`
 
 ### Run Remotely on Heroku (optional)
