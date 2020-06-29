@@ -3,7 +3,7 @@ A Python app deployed on Heroku that uses Selenium to notify you, via text messa
 
 
 ## Setup
-1. Alter test.py and replace your gmail account info on lines 8 and 9
+1. Alter sms.py and replace your gmail account info on lines 8 and 9
 2. On line 16 use your corresponding carrier's sms gateway:
   * AT&T: [number]@txt.att.net
   * Sprint: [number]@messaging.sprintpcs.com or [number]@pm .sprint.com
@@ -15,7 +15,7 @@ A Python app deployed on Heroku that uses Selenium to notify you, via text messa
   * Tracfone: [number]@mmst5.tracfone.com
   * U.S. Cellular: [number]@email.uscc.net
   * Virgin Mobile: [number]@vmobl.com
-3. In runner.py line 63 enter your real number
+3. In functions.py line 63 enter your real number
 4. Run with `python3 runner.py`
 
 ### Run Remotely on Heroku (optional)
