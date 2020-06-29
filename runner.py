@@ -5,6 +5,7 @@
 # 5 find the classes of interest by ClassNo.
 # 6 iterate through specified classes check if any are open
 # 7 repeat 4 - 6
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 import time
 import test
@@ -57,8 +58,17 @@ while(True):
             # find a way to choose dropdown by name and not id
             driver.find_element_by_id("imageDivLink8").click()
 
-            driver.find_element_by_xpath(
-                "//*[contains(text(), '" + section + "')]").click()
+            # driver.find_element_by_xpath(
+            #     "//*[contains(text(), '" + section + "')]").click()
+
+            element = driver.find_element_by_xpath(
+                "//*[contains(text(), '" + section + "')]")
+
+            actions = ActionChains(driver)
+
+            actions.move_to_element(element).perform()
+
+            element.click()
 
             print("checking status...")
             status = driver.find_element_by_id(
