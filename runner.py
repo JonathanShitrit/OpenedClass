@@ -5,7 +5,6 @@
 # 5 find the classes of interest by ClassNo.
 # 6 iterate through specified classes check if any are open
 # 7 repeat 4 - 6
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 import time
 import test
@@ -50,21 +49,11 @@ while(True):
         searchBtn.click()
 
         # list of classes page
-        # sections = ["48158", "48201", "51617", "48196", "48220"]
-        sections = ["48170", "48194", "48186", "48149",
-                    "48224", "48216", "48225", "48218"]
+        sections = ["48158", "48201", "51617", "48196", "48220"]
         for section in sections:
             driver.find_element_by_id("imageDivLink_inst0").click()
             # find a way to choose dropdown by name and not id
-
-            # driver.find_element_by_id("imageDivLink21").click()
-            driver.find_element_by_id("imageDivLink8").click()
-
-            element = driver.find_element_by_xpath(
-                "//*[contains(text(), '" + section + "')]")
-            actions = ActionChains(driver)
-            actions.move_to_element(element).perform()
-            element.click()
+            driver.find_element_by_id("imageDivLink21").click()
 
             driver.find_element_by_xpath(
                 "//*[contains(text(), '" + section + "')]").click()
