@@ -8,7 +8,7 @@
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 import time
-import test
+from functions import *
 import os
 
 classStatus = "Closed"
@@ -25,6 +25,7 @@ while(True):
         driver = webdriver.Chrome(executable_path=os.environ.get(
             "CHROMEDRIVER_PATH"), options=chrome_options)
 
+        # base url
         driver.get("https://globalsearch.cuny.edu/CFGlobalSearchTool/search.jsp")
 
         # initial page
@@ -49,38 +50,18 @@ while(True):
         searchBtn = driver.find_element_by_id("btnGetAjax")
         searchBtn.click()
 
-        # list of classes page
-        # sections = ["48158", "48201", "51617", "48196", "48220"]
-        sections = ["48170", "48186", "48149"]
+        # sections to check
+        sections335 = ["48202"]
+        open_sections_and_check(driver, sections335, "14")
 
-        for section in sections:
-            driver.find_element_by_id("imageDivLink_inst0").click()
-            # find a way to choose dropdown by name and not id
-            driver.find_element_by_id("imageDivLink8").click()
+        sections344 = ["48164"]
+        open_sections_and_check(driver, sections344, "17")
 
-            # driver.find_element_by_xpath(
-            #     "//*[contains(text(), '" + section + "')]").click()
+        sections363 = ["48160"]
+        open_sections_and_check(driver, sections363, "19")
 
-            element = driver.find_element_by_xpath(
-                "//*[contains(text(), '" + section + "')]")
-
-            actions = ActionChains(driver)
-
-            actions.move_to_element(element).perform()
-
-            element.click()
-
-            print("checking status...")
-            status = driver.find_element_by_id(
-                "SSR_CLS_DTL_WRK_SSR_DESCRSHORT")
-            classStatus = status.text
-            print("class is", classStatus)
-
-            if(classStatus == "Open"):
-                myclass = test.sms()
-                myclass.sendSmsTo("3474663815", section)
-            # time.sleep(50)
-            driver.back()
+        sections381 = ["48158", "48201", "51617", "48196", "48220"]
+        open_sections_and_check(driver, sections381, "21")
 
         time.sleep(5)
         print("closing window...")

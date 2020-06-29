@@ -3,7 +3,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 
-class sms:
+class Sms:
     def __init__(self):
         self.__email = "Jonathanshitrit8@gmail.com"
         self.__pas = "Jadardajadarda21;"
