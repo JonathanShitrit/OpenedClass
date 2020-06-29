@@ -49,11 +49,13 @@ while(True):
         searchBtn.click()
 
         # list of classes page
-        sections = ["48158", "48201", "51617", "48196", "48220"]
+        # sections = ["48158", "48201", "51617", "48196", "48220"]
+        sections = ["48170", "48186", "48149"]
+
         for section in sections:
             driver.find_element_by_id("imageDivLink_inst0").click()
             # find a way to choose dropdown by name and not id
-            driver.find_element_by_id("imageDivLink21").click()
+            driver.find_element_by_id("imageDivLink8").click()
 
             driver.find_element_by_xpath(
                 "//*[contains(text(), '" + section + "')]").click()
