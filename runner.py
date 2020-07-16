@@ -51,16 +51,13 @@ while(True):
         searchBtn.click()
 
         # sections to check
-        sections335 = ["48202"]
-        open_sections_and_check(driver, sections335, "14")
-
-        sections344 = ["48164"]
-        open_sections_and_check(driver, sections344, "17")
+        # sections335 = ["48202"]
+        # open_sections_and_check(driver, sections335, "14")
 
         sections363 = ["48160"]
         open_sections_and_check(driver, sections363, "19")
 
-        sections381 = ["48158", "48201", "51617", "48196", "48220"]
+        sections381 = ["48201", "51617", "48196", "48220"]
         open_sections_and_check(driver, sections381, "21")
 
         time.sleep(5)
