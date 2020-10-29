@@ -25,6 +25,7 @@ while(True):
         driver = webdriver.Chrome(executable_path=os.environ.get(
             "CHROMEDRIVER_PATH"), options=chrome_options)
 
+        driver = webdriver.Chrome
         # base url
         driver.get("https://globalsearch.cuny.edu/CFGlobalSearchTool/search.jsp")
 
