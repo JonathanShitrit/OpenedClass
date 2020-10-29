@@ -1,5 +1,5 @@
-# OpenedClass
-A Python app deployed on Heroku that uses Selenium to notify you, via text message, when CUNY classes you want have an available seat. Test.py utilizes SMTPLIB module to send an email which is converted to sms on TMobile's sms gateway.
+# OpenedClas
+A Python app deployed on Heroku that uses Selenium to notify you, via text message, when CUNY classes you want have an available seat. Sms.py utilizes gmail email server and their SMTPLIB module to send an email which is converted to sms on TMobile's sms gateway.
 
 
 ## Setup
