@@ -22,8 +22,7 @@ while(True):
         chrome_options.add_argument('--no-sandbox')
         chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_PATH")
 
-        driver = webdriver.Chrome(executable_path=os.environ.get(
-            "CHROMEDRIVER_PATH"), options=chrome_options)
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 
         driver = webdriver.Chrome
         # base url
@@ -32,18 +31,15 @@ while(True):
         # initial page
         college = driver.find_element_by_id("QNS01")
         college.click()
-        term = driver.find_element_by_xpath(
-            "//*[contains(text(), 'Fall Term')]")
+        term = driver.find_element_by_xpath("//*[contains(text(), 'Fall Term')]")
         term.click()
         nextBtn = driver.find_element_by_class_name("SSSBUTTON_CONFIRMLINK")
         nextBtn.click()
 
         # second page
-        subject = driver.find_element_by_xpath(
-            "//*[contains(text(), 'Computer Science')]")
+        subject = driver.find_element_by_xpath("//*[contains(text(), 'Computer Science')]")
         subject.click()
-        courseCareer = driver.find_element_by_xpath(
-            "//*[contains(text(), 'Undergraduate')]")
+        courseCareer = driver.find_element_by_xpath("//*[contains(text(), 'Undergraduate')]")
         courseCareer.click()
         showOpenClass = driver.find_element_by_id("open_classId")
         if(showOpenClass.is_selected()):
