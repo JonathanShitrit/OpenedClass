@@ -29,6 +29,7 @@ while(True):
         # base url
         driver.get("https://globalsearch.cuny.edu/CFGlobalSearchTool/search.jsp")
 
+        print("first page")
         # initial page
         college = driver.find_element_by_id("QNS01")
         college.click()
@@ -38,6 +39,7 @@ while(True):
         nextBtn = driver.find_element_by_class_name("SSSBUTTON_CONFIRMLINK")
         nextBtn.click()
 
+        print("second page")
         # second page
         subject = driver.find_element_by_xpath(
             "//*[contains(text(), 'Computer Science')]")
@@ -51,6 +53,7 @@ while(True):
         searchBtn = driver.find_element_by_id("btnGetAjax")
         searchBtn.click()
 
+        print("third page")
         # sections to check
         # sections335 = ["48202"]
         # open_sections_and_check(driver, sections335, "14")
