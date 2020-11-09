@@ -62,7 +62,7 @@ while(True):
         # open_sections_and_check(driver, sections363, "19")
 
         sections381 = ["11962", "12006", "11981", "11944"]
-        open_sections_and_check(driver, sections381, "21")
+        open_sections_and_check(driver, sections381, "22")
 
         time.sleep(5)
         print("closing window...")
