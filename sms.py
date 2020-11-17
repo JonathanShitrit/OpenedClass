@@ -5,8 +5,8 @@ from email.mime.multipart import MIMEMultipart
 
 class Sms:
     def __init__(self):
-        self.__email = "jonathanshitrit8@gmail.com"
-        self.__pas = "Jadardajadarda21;"
+        self.__email = "YOUR GMAIL ACCOUNT NAME"
+        self.__pas = "YOUR GMAIL ACCOUNT PASSWORD"
         # The server we use to send emails in our case it will be gmail but every email provider has a different smtp
         # and port is also provided by the email provider.
         self.smtp = "smtp.gmail.com"
